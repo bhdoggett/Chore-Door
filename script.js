@@ -52,21 +52,19 @@ function playDoor(door) {
 }
 
 function randomChoreDoorGenerator() {
-  let choreDoor = Math.floor(Math.random() * numClosedDoors);
-  if (choreDoor === 0) {
-    openDoor1 = botDoorPath;
-    openDoor2 = beachDoorPath;
-    openDoor3 = spaceDoorPath;
-  } else if (choreDoor === 1) {
-    openDoor1 = beachDoorPath;
-    openDoor2 = botDoorPath;
-    openDoor3 = spaceDoorPath;
-  } else {
-    openDoor1 = beachDoorPath;
-    openDoor2 = spaceDoorPath;
-    openDoor3 = botDoorPath;
-  }
+  // Create an array of the possible door paths
+  let doorPaths = [botDoorPath, beachDoorPath, spaceDoorPath];
 
+  // Randomly select and assign each door image
+  let choreDoor = Math.floor(Math.random() * doorPaths.length);  // Randomly select for door 1
+  openDoor1 = doorPaths[choreDoor];  // Assign the image to door 1
+  doorPaths.splice(choreDoor, 1);  // Remove the assigned image from the array
+
+  choreDoor = Math.floor(Math.random() * doorPaths.length);  // Randomly select for door 2 from remaining options
+  openDoor2 = doorPaths[choreDoor];  // Assign the image to door 2
+  doorPaths.splice(choreDoor, 1);  // Remove the assigned image from the array
+
+  openDoor3 = doorPaths[0];  // The remaining image will be for door 3
 }
 
 
