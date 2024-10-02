@@ -1,0 +1,1 @@
+This is a project from codecademy. A game is played in which a series of doors are selected, hoping to avoid the "Chore Bot." If the Space door and Beach door are selected before the Bot appears, the player wins.
